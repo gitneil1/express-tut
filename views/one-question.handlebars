@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="/css/individual_question.css">
+<div class="page-header" ng-app="viewQuestion">
+
+    <h3>Individual</h3>
+    <div ng-controller="viewQuestionCtrl">
+        <input type="text" id="objQues" class="hidden_question" value="{{number}}">
+        <hr>
+        <div id="questionInfo">
+            <h2 ng-bind="objInfo.ques"></h2>
+            
+            <p>by <span ng-bind="objInfo.email"></span> <i>on </i><span ng-bind="objInfo.date"></span>, <span ng-bind="objInfo.time"></span></p>
+        </div>    
+        <hr>
+        
+        <h3>Comments</h3>
+        
+        <div class="submitComment">
+            <form method="post" action="/submit_comment">
+                <input type="hidden" id="commentedQuestion" name="commentedQuestion" value="{{number}}">
+                
+                <div>
+                    <textarea cols="70" rows="10" id="message" name="message"></textarea>
+                </div>    
+                
+                <div>
+                    <input type="text" id="commenter" name="commenter" placeholder="Your e-mail">
+                </div>
+                
+                <div>
+                    <button type="submit" value="Reply">Reply</button>
+                </div>    
+            </form>
+        </div>
+        
+        <div class="comments">
+            <hr>
+            <h3>This is where the comments will be placed</h3>
+            
+            <!--<div id="commentsList" ng-controller="commentsListCtrl">-->
+            <div id="commentsList" ng-controller="viewQuestionCtrl">    
+                <ul>
+                    <li ng-repeat="c in comments">
+                        <p>Message</p><span ng-bind="c.message"></span>
+                        <p>Commenter</p><span ng-bind="c.commenter"></span>
+                        <p>Date/Time: <span ng-bind="c.date"></span>, <i><span ng-bind="c.time"></span></i></p>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/view_question.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

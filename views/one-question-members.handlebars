@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="/css/individual_question.css">
+<link rel="stylesheet" href="/css/lounge.css">
+<div class="page-header" ng-app="viewQuestionMembers">
+    
+    <div ng-controller="viewQuestionMemberCtrl">
+        
+        <p class="logout">Hello, <span ng-bind="username"></span> <a href="/logout"> Logout</a></p>
+        
+        <div class="member_home_sidebar">
+            <ul>
+                <li><a href="/lounge">Lounge</a></li>
+                <li><a href="">Edit Account</a></li>
+                <li><a href="">Ask</a></li>
+                <li><a href="">View Reply</a></li>
+            </ul>
+        </div>
+        
+        <input type="text" id="objQues" class="hidden_question" value="{{ques}}">
+        <hr>
+        <div id="questionInfo">
+            <h2 ng-bind="objInfo.ques"></h2>
+            <p>by <span ng-bind="objInfo.email"></span> on 
+                <span ng-bind="objInfo.date"></span>
+                <i><span ng-bind="objInfo.time"></span></i>
+            </p>
+        </div>
+        <hr>
+        
+        <div class="comments">
+            <hr>
+            <h3>Comments:</h3>
+            
+            <div class="submitComment">
+                <form method="post" action="/submit_comment_members">
+                    <input type="hidden" id="commentedQuestion" name="commentedQuestion" value="{{ques}}">
+                    
+                    <div>
+                    <textarea cols="70" rows="10" id="message" name="message"></textarea>
+                    </div>    
+                
+                    
+                
+                <div>
+                    <button type="submit" value="Reply">Reply</button>
+                </div>    
+                </form>
+            </div>
+            
+            <hr>
+        
+            <div id="commentsList">
+                <ul>
+                    <li ng-repeat="c in comments">
+                        <p><span ng-bind="c.message"></span></p>
+                        <p></p>
+                        <p><i><span ng-bind="c.commenter"></span></i></p>
+                        <p>
+                            Date/Time: <span ng-bind="c.date"></span><i><span ng-bind="c.time"></span></i>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/view_question_member.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

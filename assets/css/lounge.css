@@ -1,0 +1,70 @@
+/*
+name: lounge.css
+Author: Neil Agor
+Date: July 20, 2016
+Description:
+    Main style for lounge.handlebars
+*/
+ul{
+    list-style: none;
+}
+
+ul#questions li{
+    border-bottom: 1px solid #A9A9A9;
+}
+
+a{
+    text-decoration: none;
+}
+
+.logout{
+    float: right;
+    padding-left: 20px;
+}
+
+.member_home_sidebar{
+    float: left;
+}
+
+.questions_list{
+    float: left;
+    padding-left: 40px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.sort_selection{
+    float: right;
+}
+
+footer{
+    clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

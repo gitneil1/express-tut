@@ -1,0 +1,11 @@
+/*
+name: home.css
+Author: Neil Agor
+Date: July 6, 2016
+Description:
+    Main style for one-question.handlebars
+*/
+
+.hidden_question{
+    display: none;
+}

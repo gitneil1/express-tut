@@ -1,0 +1,38 @@
+<div class="page-header" ng-app="lounge">
+    <link rel="stylesheet" href="/css/lounge.css">
+    
+    <h3>The Lounge</h3>
+    <div ng-controller="loungeCtrl">
+    
+        <p class="logout">Hello, <span ng-bind="username"></span> <a href="/logout"> Logout</a></p>
+
+        <div class="member_home_sidebar">
+            <ul>
+                <li><a href="">Edit Account</a></li>
+                <li><a href="">Ask</a></li>
+                <li><a href="">View Reply</a></li>
+            </ul>
+        </div>
+
+        <div class="questions_list">
+            <h3>Questions posted for the day here</h3>
+            <ul id="questions">
+            
+            </ul>
+        </div>
+
+        <div class="sort_selection">
+            <select name="sort_selection">
+                <option>-Sort by category-</option>
+                <option>Science and Technology</option>
+                <option>Business</option>
+            </select>
+        </div>
+
+        <footer>AskAnyone.com 2016</footer>
+        <script src="/js/angular.min.js"></script>
+        <script src="/js/lounge.js"></script>
+        
+    
+    </div><!-- end loungeCtrl -->
+</div>

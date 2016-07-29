@@ -1,3 +1,25 @@
-<div class="page-header">
+<link rel="stylesheet" href="/css/home.css">
+<div class="page-header" ng-app="questions">
     <h3>Welcome to my Express Tutorial</h3>
+    
+    <div ng-controller="questionCtrl">
+        <hr>
+        
+        <ul id="questions">
+            <!--<li class="listQuestions" ng-repeat="q in allQuestions">
+                <span class="hidden_question" ng-bind="q.id" id="qq">this</span>
+                
+                <p ng-bind="q.ques"></p>
+                
+                <p ng-bind="q.email"></p>
+            </li> 7/22-->
+        </ul>
+        
+    </div>
+    
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/questions_controller.js"></script>
+    <!--<script src="/js/test_series.js"></script> 7/22-->
 </div>
+
+
