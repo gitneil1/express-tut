@@ -1,0 +1,18 @@
+/*
+name: home.css
+Author: Neil Agor
+Date: July 5, 2016
+Description:
+    Main style for home.handlebars
+*/
+ul{
+    list-style: none;
+}
+
+ul#questions li{
+    border-bottom: 1px solid #A9A9A9;
+}
+
+.hidden_question{
+    /*display: none;*/
+}
