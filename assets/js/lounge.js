@@ -12,11 +12,11 @@ var elems = document.getElementById('questions');
     console.log('Username is: ' + username);
 
 lounge.controller('loungeCtrl', function($scope, $http){
-    console.log('welcome');
+    //console.log('welcome');
     
     $scope.username = username;
     
-    $http.get('/getData').success(function(res){
+    $http.get('/getData/member').success(function(res){
     
         if(res.length > 0){
     
@@ -29,4 +29,47 @@ lounge.controller('loungeCtrl', function($scope, $http){
             $scope.ques = "none";
         }
     });//end /getData    
-});
+    
+});// end loungeCtrl
+
+function sortBy(){
+        alert('called sortBy()');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

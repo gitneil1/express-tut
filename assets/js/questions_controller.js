@@ -4,7 +4,7 @@ var elems = document.getElementById('questions');
 
 questions.controller('questionCtrl', function($scope, $http){
     
-    $http.get('/getData').success(function(res){
+    $http.get('/getData/visitor').success(function(res){
         
         if(res.length > 0){
             for(var i = 0; i < res.length; i++){

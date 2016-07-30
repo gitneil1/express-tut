@@ -32,10 +32,26 @@ app.get('/', function(req, res){
     res.render('home');
 });
 
-app.get('/getData', function(req, res){
-    db_questions.forum_questions.find(function(err, docs){
+app.get('/getData/:account', function(req, res){
+    //if account is member, get data that is for today only
+    var account = req.params.account;
+    
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+    
+    var dateNow = month + '/' + day + '/' + year;
+    
+    if(account === "member"){
+        db_questions.forum_questions.find({date: dateNow},function(err, docs){
         res.json(docs);   
-    });
+        });
+    }else{
+        db_questions.forum_questions.find(function(err, docs){
+            res.json(docs);   
+        });
+    }
 });
 
 app.use(function(req, res, next){
