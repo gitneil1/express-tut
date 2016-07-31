@@ -28,13 +28,23 @@ lounge.controller('loungeCtrl', function($scope, $http){
         }else{
             $scope.ques = "none";
         }
-    });//end /getData    
+    });//end /getData
+    
+    //put all categories in an array. to be maintainable if there's an expansion/modification
+    //this is working
+    $scope.categories = [{name: '-No sort-'},
+                         {name: 'Science and Technology'},
+                         {name: 'Business'},
+                         {name: 'Personal'},
+                         {name: 'Social'},
+                         {name: 'Employment'}];
+    
+    //should sort/map the array of today's questions based on category
+    $scope.update = function(){
+        console.log('Item name: ' + $scope.category.name);
+    }
     
 });// end loungeCtrl
-
-function sortBy(){
-        alert('called sortBy()');
-    }
 
 
 
