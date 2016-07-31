@@ -22,14 +22,11 @@
         </div>
 
         <div class="sort_selection">
-            <select name="sort_selection" onchange="sortBy()">
-                <option>-Sort by category-</option>
-                <option>Science and Technology</option>
-                <option>Business</option>
-                <option>Personal</option>
-                <option>Social</option>
-                <option>Employment</option>
-            </select>
+            <select ng-options="cat as cat.name for cat in categories"
+                    ng-model="category"
+                    ng-change="update()"></select>
+            <br>
+            Category Name: <span ng-bind="category.name"></span>
         </div>
 
         <footer>AskAnyone.com 2016</footer>
