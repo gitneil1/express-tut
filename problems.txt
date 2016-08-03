@@ -1,0 +1,9 @@
+problems encountered here:
+errors/exception encountered
+
+Legend:
+P.S. -> Possible Solution
+========================================================================================================
+
+1. angular.min.js:117 Error: Failed to execute 'querySelectorAll' on 'Document': 'data-category=Science and Technology' is not a valid selector.
+P.S. should use CSS selector 

@@ -1,0 +1,27 @@
+this file will contain any misc info about the project
+Legend:
+(undone) - must be fixed
+(fixed) - solved
+(sol.) - explain solution
+=====================================
+
+8/1/2016
+1. store data from database to an array for sorting
+DOM is manipulated instead  
+========================================================================================================
+
+8/3/2016
+1. note to self: review CSS selectors and JS DOM manipulation(undone)
+
+2. fix bug on selecting category. works on the first try but fail other tries(fixed)
+   (sol.) used document.querySelectorAll() for selected and not selected
+   used selectedElems.style.display = "block";
+   used UnselectedElems.style.display = "none";
+
+3. fix bug on comment section. showing angular error/exception when there is no comment 
+   in a question
+   
+4. fix bug on selecting category. Must show message if there's no question of selected category(undone)   
+
+5. learn for each loop for arrays(undone)
+=======================================================================================================
