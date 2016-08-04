@@ -25,3 +25,7 @@ DOM is manipulated instead
 
 5. learn for each loop for arrays(undone)
 =======================================================================================================
+
+8/4/2016
+1. Show message to lounge if there is no question posted for the day(fixed)
+   (sol.) added default message saying 'There are no questions posted today.' in <li>
