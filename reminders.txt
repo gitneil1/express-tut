@@ -40,6 +40,10 @@ DOM is manipulated instead
    (sol. 8/9/2016) created a li element that contains default message. check if it exists then remove it
    if selected category does not return null
    
+2. fix bug on logout. session username is not deleted(prob)   
+   (sol. 8/9/2016) used req.session.destroy(function(err){});
+   unauthorized users will be redirected to 'thankyou' page
+   
    
    
    

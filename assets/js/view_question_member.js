@@ -9,11 +9,12 @@ var username;
 for(var i = 0; i < cookieArray.length; i++){
     username = cookieArray[i].split('=')[1];
 }
-console.log('Username is: ' + username);
+//console.log('Username is: ' + username);
 if(username === undefined){
     console.log('Must redirect to signin');
     //redirection here
 }
+
 
 viewQuestionMember.controller('viewQuestionMemberCtrl', function($scope, $http){
     $scope.username = username;
