@@ -190,8 +190,16 @@ app.get('/one-question/:question_ques', function(req, res){
 
 //for members only
 app.get('/one-question-members/:ques', function(req, res){
-    var qQues = req.params.ques;
-    res.render('one-question-members', {ques: qQues});
+    if(req.session.user == undefined){ 
+        console.log('Username: undefined. Redirecting to signin');
+        res.render('signin');
+    }else{
+        //set cookie for user
+        res.cookie('username', req.session.user);
+        res.render('one-question-members', {ques: req.params.ques});
+    }
+    //var qQues = req.params.ques;
+    //res.render('one-question-members', {ques: qQues});
 });
 
 //req.myForum.questionObj should be here
@@ -299,8 +307,17 @@ app.get('/getCommentsList/:ques', function(req, res){
 })
 
 app.get('/logout', function(req, res){
-    res.clearCookie('username');
-    res.render('thankyou');
+    req.session.destroy(function(err){
+        if(err){ 
+            console.log(err)
+        }else{
+            res.render('thankyou');
+        }
+        
+    });
+    
+    //res.clearCookie('username');
+    //res.render('thankyou');
 })
 /* 7/21
 app.get('/file-upload', function(req, res){
