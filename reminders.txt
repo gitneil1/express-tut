@@ -21,7 +21,8 @@ DOM is manipulated instead
 3. fix bug on comment section. showing angular error/exception when there is no comment 
    in a question
    
-4. fix bug on selecting category. Must show message if there's no question of selected category(undone)   
+4. fix bug on selecting category. Must show message if there's no question of selected category(fixed)  
+   (sol.) used if statement to check if a question of chosen category exists. 
 
 5. learn for each loop for arrays(undone)
 =======================================================================================================
@@ -29,3 +30,49 @@ DOM is manipulated instead
 8/4/2016
 1. Show message to lounge if there is no question posted for the day(fixed)
    (sol.) added default message saying 'There are no questions posted today.' in <li>
+========================================================================================================
+
+8/9/2016
+1. fix bug on selecting categories. everytime <select> onchange it adds a default message. there must be
+   only one default message(undone)
+   (sol. 8/9/2016) used elems.removeChild(elems.firstChild) to remove all child nodes then add default
+   message
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

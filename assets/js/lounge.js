@@ -44,12 +44,19 @@ lounge.controller('loungeCtrl', function($scope, $http){
         //get all <li> with data-categories == selected value. should return an array if successful
         var selectedElems = document.querySelectorAll('li.listOfcurrentQuestions[data-category="' + $scope.category.name + '"]');
         
-        
-        for(var i = 0; i < selectedElems.length; i++){
+        if(selectedElems.length > 0){
+            for(var i = 0; i < selectedElems.length; i++){
                 //show all elements which are of the selected category
                 selectedElems[i].style.display = "block";
             }
-        
+        }else{
+            //remove all child elements of elems
+            while(elems.firstChild){
+                elems.removeChild(elems.firstChild);
+            }
+            //insert a default message
+            elems.insertAdjacentHTML('afterBegin', '<li>There are no questions with that category.</li>');
+        }
         //get all <li> with data-categories != selected value. should return an array if successful
         var UnselectedElems = document.querySelectorAll('li.listOfcurrentQuestions:not([data-category="' + $scope.category.name + '"])');
         if(UnselectedElems.length > 0){
