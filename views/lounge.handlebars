@@ -1,3 +1,5 @@
+
+{{>homelink}}
 <div class="page-header" ng-app="lounge">
     <link rel="stylesheet" href="/css/lounge.css">
     
@@ -5,14 +7,6 @@
     <div ng-controller="loungeCtrl">
     
         <p class="logout">Hello, <span ng-bind="username"></span> <a href="/logout"> Logout</a></p>
-
-        <div class="member_home_sidebar">
-            <ul>
-                <li><a href="">Edit Account</a></li>
-                <li><a href="">Ask</a></li>
-                <li><a href="">View Reply</a></li>
-            </ul>
-        </div>
 
         <div class="questions_list">
             <h3>Questions posted for the day here</h3>
