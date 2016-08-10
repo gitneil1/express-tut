@@ -2,7 +2,10 @@ var questions = angular.module("questions", []);
 
 var elems = document.getElementById('questions');
 
+
+
 questions.controller('questionCtrl', function($scope, $http){
+    
     
     $http.get('/getData/visitor').success(function(res){
         
