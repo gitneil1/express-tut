@@ -1,19 +1,13 @@
 <link rel="stylesheet" href="/css/individual_question.css">
 <link rel="stylesheet" href="/css/lounge.css">
+
+{{>homelink}}
+
 <div class="page-header" ng-app="viewQuestionMembers">
     
     <div ng-controller="viewQuestionMemberCtrl">
         
         <p class="logout">Hello, <span ng-bind="username"></span> <a href="/logout"> Logout</a></p>
-        
-        <div class="member_home_sidebar">
-            <ul>
-                <li><a href="/lounge">Lounge</a></li>
-                <li><a href="">Edit Account</a></li>
-                <li><a href="">Ask</a></li>
-                <li><a href="">View Reply</a></li>
-            </ul>
-        </div>
         
         <input type="text" id="objQues" class="hidden_question" value="{{ques}}">
         <hr>
