@@ -3,6 +3,7 @@ Legend:
 (prob) - must be fixed
 (fixed) - solved
 (sol.) - explain solution
+(IMPT.) - important note
 =====================================
 
 8/1/2016
@@ -34,16 +35,31 @@ DOM is manipulated instead
 
 8/9/2016
 1. fix bug on selecting categories. everytime <select> onchange it adds a default message. there must be
-   only one default message(prob)
+   only one default message(fixed)
    (sol. 8/9/2016) used elems.removeChild(elems.firstChild) to remove all child nodes then add default
    message (WRONG sol. must fix)
    (sol. 8/9/2016) created a li element that contains default message. check if it exists then remove it
    if selected category does not return null
    
-2. fix bug on logout. session username is not deleted(prob)   
+2. fix bug on logout. session username is not deleted(fixed)   
    (sol. 8/9/2016) used req.session.destroy(function(err){});
    unauthorized users will be redirected to 'thankyou' page
    
+3. fix bugs on Handlebars. li elements must be added/removed accordingly(prob)   
+   (sol. 8/10/2016) created a separate partial(homelink.hb) for members
+
+4. learn intensively the Handlebarsjs(prob)
+========================================================================================================
+
+8/11/2016
+1. create edit_account.handlebars(fixed)
+   (sol. 8/11/2016) successfully updating in the database
+
+2. (IMPT.) db.<collection>.find() returns an array of objects if successful
+
+3. (IMPT.) always put id and name attributes in form input
+
+
    
    
    
