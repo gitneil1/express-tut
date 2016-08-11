@@ -115,11 +115,15 @@ app.post('/login', function(req, res){
         if(doc.length > 0){
             for(var i = 0; i < doc.length; i++){
                 if(password === doc[i].password){
-                    console.log('ok to log');
+                    //console.log('ok to log'); 8/9/2016
                     req.session.user = username;
                     //res.cookie('username', username);
                     
-                    res.redirect('lounge');
+                    res.redirect('lounge'); 
+                    //testing
+                    //app.set('view options', {layout: '500'});
+                    //res.render('view', {title: 'member page', layout: 'members'});
+                    //end testing
                 }else{
                     console.log('wrong username/password');
                     res.redirect('signin');
@@ -214,6 +218,25 @@ app.get('/getQuestionObj/:question', function(req, res){
     });
 });
 
+//Edit account(members only)
+app.get('/edit_account', function(req, res){
+    //console.log('editing user: ' + req.session.user);
+    //render edit_account.handlebars with username as context
+    //res.render('edit_account', {username: req.session.user});
+    //get user info from db
+    db.forum_users.find({username: req.session.user}, function(err, doc){
+        if(err){
+            console.log(err.message);
+        }else if(doc.length > 0){
+            //console.log('editing user from db: ' + doc[0].username);
+            //console.log(doc);
+            res.render('edit_account', {user: doc});
+        }else{
+            console.log('something is wrong in /edit_account');
+        }
+    });
+});
+
 app.post('/validateInfo', function(req, res){
     var username = req.body.username;
     
@@ -229,6 +252,27 @@ app.post('/validateInfo', function(req, res){
             });
         }
     });
+});
+
+// editUserInfo(members only)
+app.post('/editUserInfo', function(req, res){
+    var name = req.body.inputName || 'unset';
+    var sex = req.body.sex || 'unset';
+    var email = req.body.inputEmail || 'unset';
+    
+    console.log('in /editUserInfo');
+    console.log('name: ' + name);
+    console.log('sex: ' + sex);
+    console.log('username: ' + req.session.user);
+    console.log('email: ' + email);
+    
+    //update document
+    db.forum_users.update({username: req.session.user}, 
+                          {$set: {
+                              name: name,
+                              sex: sex,
+                              email: email
+                          }});
 });
 
 app.post('/process', function(req, res){
