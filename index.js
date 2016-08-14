@@ -237,6 +237,11 @@ app.get('/edit_account', function(req, res){
     });
 });
 
+//ask question for members only
+app.get('/ask_question_member', function(req, res){
+    res.render('ask_question_member', {user: req.session.user})
+})
+
 app.post('/validateInfo', function(req, res){
     var username = req.body.username;
     
@@ -274,6 +279,34 @@ app.post('/editUserInfo', function(req, res){
                               email: email
                           }});
 });
+
+//process member post
+app.post('/askQuestion', function(req, res){
+    console.log('Question: ' + req.body.question)
+    console.log('Category: ' + req.body.category)
+    console.log('Description: ' + req.body.description)
+    
+    var postedBy = req.session.user
+    req.body.postedBy = postedBy
+    
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+    var date1 = month + "/" + day + "/" + year;
+    console.log('Date posted: ' + date1);
+    req.body.date = date1;
+    
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var time = hour + ":" + minute;
+    req.body.time = time;
+    
+    db_questions.forum_questions.insert(req.body, function(err, doc){
+       console.error('error in inserting from /askQuestion: ' + err); 
+    });
+    
+})
 
 app.post('/process', function(req, res){
     console.log('Form : ' + req.query.form);

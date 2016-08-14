@@ -58,6 +58,15 @@ DOM is manipulated instead
 2. (IMPT.) db.<collection>.find() returns an array of objects if successful
 
 3. (IMPT.) always put id and name attributes in form input
+========================================================================================================
+
+8/14/2016
+1. create ask_question_member.handlebars (this is where members will post their questions) (fixed)
+   (sol. 8/14/2016) question by members are posted in the database
+   
+2. fix collection. change names and delete questions with outdated attributes(prob)
+
+3. fix one-question.hbs and one-question-member.hbs. description of document is not shown(prob)
 
 
    
