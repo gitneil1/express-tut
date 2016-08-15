@@ -27,9 +27,10 @@ viewQuestionMember.controller('viewQuestionMemberCtrl', function($scope, $http){
         if(res.length > 0){
             for(var i = 0; i < res.length; i++){
                 $scope.objInfo.ques = res[i].ques;
-                $scope.objInfo.email = res[i].email;
+                $scope.objInfo.postedBy = res[i].postedBy;
                 $scope.objInfo.date = res[i].date;
                 $scope.objInfo.time = res[i].time;
+                $scope.objInfo.desc = res[i].desc;
                 
                 if(res[0].Comments.length > 0){
                     for(var i = 0; i < res[0].Comments.length; i++){
