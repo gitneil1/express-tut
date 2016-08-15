@@ -8,6 +8,13 @@ var db_questions = mongojs('forum_questions', ['forum_questions']);
 app.disable('x-powered-by');
 
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
+//right way of registering helpers for handlebars in nodejs
+/*
+var handlebars = require('express-handlebars').create({defaultLayout: 'main'}, 
+                                                      {helpers: {with: function(context, options){
+                                                                     return options.fn(context)
+                                                      }}})
+*/                                                      
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -242,6 +249,36 @@ app.get('/ask_question_member', function(req, res){
     res.render('ask_question_member', {user: req.session.user})
 })
 
+//for members only
+app.get('/view_reply', function(req, res){
+    
+    //get all questions posted by user
+    //db processing here
+    db_questions.forum_questions.find({postedBy: req.session.user}, function(err, docs){
+        if(docs.length > 0){
+            console.log('User posted some questions. count: ' + docs.length)
+            
+            res.render('view_reply', {
+                user: req.session.user,
+                title: "Your Questions...",
+                listOfQuestions: docs
+            })
+        }else{
+            console.log('User has not posted yet')
+            
+            res.render('view_reply', {
+                user: req.session.user,
+                title: "You have not posted a question yet...",
+                listOfQuestions: docs
+            })
+        }
+    })
+    /*
+    
+    */
+})
+
+
 app.post('/validateInfo', function(req, res){
     var username = req.body.username;
     
@@ -310,8 +347,9 @@ app.post('/askQuestion', function(req, res){
 
 app.post('/process', function(req, res){
     console.log('Form : ' + req.query.form);
-    console.log('CSRF token : ' + req.body._csrf);
-    console.log('Email : ' + req.body.email);
+    //console.log('CSRF token : ' + req.body._csrf);
+    //console.log('Email : ' + req.body.email);
+    console.log('Posted by: ' + req.body.postedBy)
     console.log('Question : ' + req.body.ques);
     console.log('Category: ' + req.body.categories);
     var now = new Date();
@@ -328,7 +366,7 @@ app.post('/process', function(req, res){
     req.body.time = time;
     
     db_questions.forum_questions.insert(req.body, function(err, doc){
-       console.error(err); 
+       console.error('Error message: ' + err); 
     });
     
     res.redirect(303, '/thankyou');

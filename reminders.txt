@@ -65,8 +65,21 @@ DOM is manipulated instead
    (sol. 8/14/2016) question by members are posted in the database
    
 2. fix collection. change names and delete questions with outdated attributes(prob)
+   (sol. 8/15/2016) removed all questions with old structure
 
-3. fix one-question.hbs and one-question-member.hbs. description of document is not shown(prob)
+3. fix one-question.hbs and one-question-member.hbs. description of document is not shown(fixed)
+   (sol. 8/15/2016) description of questions are now shown
+========================================================================================================
+
+8/15/2016
+1. create view_reply.handlebars for the members. this is where they will see the questions they posted(fixed)
+   (sol. 8/15/2016) questions posted by the user are now shown 
+
+2. create a link to each user's question so he can see if there's a comment on the document(prob)
+
+3. do image upload for the members(prob)
+
+
 
 
    
