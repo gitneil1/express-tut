@@ -1,0 +1,13 @@
+{{>homelink}}
+<div class="page-header">
+    <p>Welcome, {{user}}</p>
+    
+    
+    <h1>{{title}}</h1>
+    
+    <h3>There should be a list of questions posted by user here</h3>
+    
+    {{#each listOfQuestions}}
+        <p>ques: {{ques}}</p>
+    {{/each}}
+</div>
